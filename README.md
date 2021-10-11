@@ -28,7 +28,7 @@ to begin the application.
 
 ## Video
 
-- Find a link to the application in use here: [Link To Video](https://drive.google.com/drive/folders/1BpJERda_smyrOtvPDNJWQGPl5rnPYWMg?usp=sharing)
+- Find a link to the application in use here: [Link To Video](https://drive.google.com/file/d/1qjrFs1I9IsnIiG9WnzMxls0wSPaJICZh/view)
 
 ## Questions
 
