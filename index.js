@@ -3,6 +3,11 @@ const Inquirer = require("inquirer");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+const HTML = require("./src/createTeamPage");
+
+//global variables/containers
+let teamArr = [];
+let teamName;
 
 //gets team name
 function getTeamName() {
@@ -13,7 +18,7 @@ function getTeamName() {
       message: "What is your team's name?",
     },
   ]).then(({ name }) => {
-    let teamName = name;
+    let teamName = "Team " + name;
     console.log(
       `\nThank You. Your Team Name has been set as "${teamName}".\n\nPlease Add Your Team Members.\n`
     );
@@ -23,7 +28,6 @@ function getTeamName() {
 
 //adds a single team member
 function addTeamMember() {
-  let teamArr = [];
   Inquirer.prompt([
     {
       name: "name",
@@ -82,7 +86,6 @@ function addTeamMember() {
       default:
         console.log("Alert: No team member detected!");
     }
-    console.log(teamArr);
     addTeamMembers();
   });
 }
@@ -90,12 +93,22 @@ function addTeamMember() {
 function addTeamMembers() {
   Inquirer.prompt([
     {
-      name: "continue",
+      name: "add",
       type: "confirm",
       message: "Would you like to add another team member?",
     },
-  ]).then((res) => {
-    console.log(res);
+  ]).then(({ add }) => {
+    if (add) {
+      addTeamMember();
+    } else {
+      File.writeFile(
+        "./dist/index.html",
+        HTML.createPage(teamName, HTML.createCards(teamArr)),
+        (err) => {
+          console.error(err);
+        }
+      );
+    }
   });
 }
 
