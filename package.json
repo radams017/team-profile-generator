@@ -1,5 +1,11 @@
 {
   "devDependencies": {
     "jest": "^27.2.5"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
