@@ -14,5 +14,9 @@ describe("Employee", () => {
       const emp = new Employee("Ryan", 1, "ryan@gmail.com");
       expect(emp.getEmail()).toBe("ryan@gmail.com");
     });
+    it("Should Return Role as Employee", () => {
+      const emp = new Employee("Ryan", 1, "ryan@gmail.com");
+      expect(emp.getRole()).toBe("Employee");
+    });
   });
 });
