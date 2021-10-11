@@ -5,25 +5,15 @@ const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const HTML = require("./src/createTeamPage");
 
-//global variables/containers
+//global container
 let teamArr = [];
-let teamName;
 
-//gets team name
-function getTeamName() {
-  Inquirer.prompt([
-    {
-      name: "name",
-      type: "Input",
-      message: "What is your team's name?",
-    },
-  ]).then(({ name }) => {
-    let teamName = "Team " + name;
-    console.log(
-      `\nThank You. Your Team Name has been set as "${teamName}".\n\nPlease Add Your Team Members.\n`
-    );
-    addTeamMember();
-  });
+//launches app
+function init() {
+  console.log(
+    "Welcome To the Team Member Generator.\n\nPlease begin by entering your team member information in the proceeding prompts.\n"
+  );
+  addTeamMember();
 }
 
 //adds a single team member
@@ -103,7 +93,7 @@ function addTeamMembers() {
     } else {
       File.writeFile(
         "./dist/index.html",
-        HTML.createPage(teamName, HTML.createCards(teamArr)),
+        HTML.createPage(HTML.createCards(teamArr)),
         (err) => {
           console.error(err);
         }
@@ -112,5 +102,5 @@ function addTeamMembers() {
   });
 }
 
-//initiates application
-getTeamName();
+//initiating application
+init();

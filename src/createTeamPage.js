@@ -55,7 +55,7 @@ function createCards(team) {
   return cards;
 }
 
-function createPage(name, cards) {
+function createPage(cards) {
   return `
     <html lang="en">
 <head>
@@ -68,7 +68,7 @@ function createPage(name, cards) {
 <body>
     <div class="container text-center">
         <div class="bg-primary">
-            <h2>${name}</h2>
+            <h2>Team Manager</h2>
         </div>
         <div class="container">
             <div class="row">
